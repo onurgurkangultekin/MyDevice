@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Devices";
+}
+
+<h1>Devices</h1>
+
+<table class="table">
+    <thead>
+    <th>Name</th>
+    <th>IP Address</th>
+    <th>Device Type</th>
+    <th>Current User</th>
+    </thead>
+    <tbody>
+        @foreach (var device in Model.Devices)
+        {
+            <tr>
+                <td>@device.Name</td>
+                <td>@device.IpAddress</td>
+                <td>@device.Type</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>Logged in as @System.Security.Principal.WindowsIdentity.GetCurrent().Name</p>
