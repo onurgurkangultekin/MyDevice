@@ -3,7 +3,8 @@
     public enum DeviceType
     {
         None,
-        IPC,
-        OC2
+        IPC_OC,
+        TestPC,
+        Laptop
     }
 }

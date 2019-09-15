@@ -5,13 +5,24 @@
 }
 
 <h1>Devices</h1>
-
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchTerm"/>
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
 <table class="table">
     <thead>
-    <th>Name</th>
-    <th>IP Address</th>
-    <th>Device Type</th>
-    <th>Current User</th>
+        <th>Name</th>
+        <th>IP Address</th>
+        <th>Device Type</th>
+        <th>Detail</th>
     </thead>
     <tbody>
         @foreach (var device in Model.Devices)
@@ -20,6 +31,12 @@
                 <td>@device.Name</td>
                 <td>@device.IpAddress</td>
                 <td>@device.Type</td>
+                <td>
+                    <a class="btn-lg"
+                       asp-page="./Detail" asp-route-deviceId="@device.Id">
+                        <i class="glyphicon glyphicon-zoom-in"></i>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>

@@ -15,6 +15,9 @@ namespace MyDevice.Pages
         private readonly IConfiguration config;
         private readonly IDeviceData deviceData;
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+
         public string Message { get; set; }
         public IEnumerable<Device> Devices { get; set; }
 
@@ -26,7 +29,7 @@ namespace MyDevice.Pages
         public void OnGet()
         {
             Message = config["Message"];
-            Devices = deviceData.GetAll();
+            Devices = deviceData.GetDevicesByName(SearchTerm);
         }
     }
 }

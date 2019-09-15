@@ -8,6 +8,7 @@ namespace MyDevice.Data
 {
     public interface IDeviceData
     {
-        IEnumerable<Device> GetAll();
+        IEnumerable<Device> GetDevicesByName(string name);
+        Device GetDevicesById(int deviceId);
     }
 }
