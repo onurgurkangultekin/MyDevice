@@ -2,6 +2,7 @@
 {
     public enum DeviceStatus
     {
+        NotAvailable,
         Available,
         Busy
     }
